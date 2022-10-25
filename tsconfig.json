@@ -2,9 +2,20 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "jsx": "react-native",
+    "types": ["react-native", "jest"],
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "strict": true,                                         /* Enable all strict type-checking options. */
+    "noUnusedParameters": false,                            /* Allow unused parameters. */
+    "noUnusedLocals": false,                                /* Allow unused locals. */
+    "noImplicitReturns": true,                              /* Report error when not all code paths in function return a value. */
+    "allowJs": true,
+    "checkJs": true,
 
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+
   }
 }
