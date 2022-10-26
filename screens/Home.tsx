@@ -1,8 +1,16 @@
 import React from 'react';
 import {Text} from 'react-native';
+import {Incubator, View} from 'react-native-ui-lib';
+
+const {TextField} = Incubator;
 
 const Home = () => {
-  return <Text>Home</Text>;
+  return (
+    <View>
+      <Text>Home</Text>
+      <TextField />
+    </View>
+  );
 };
 
 export default Home;
