@@ -11,3 +11,16 @@ export const GET_ALL_CHARACTERS: DocumentNode = gql`
     }
   }
 `;
+
+export const GET_ALL_LOCATIONS: DocumentNode = gql`
+  query GetAllLocations {
+    locations {
+      results {
+        id
+        name
+        type
+        dimension
+      }
+    }
+  }
+`;

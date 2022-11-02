@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PhoneInput from 'react-native-phone-number-input';
 import TextInputMask from 'react-native-text-input-mask';
 import {
@@ -8,7 +8,13 @@ import {
   MaskedInput,
   Text,
   Colors,
+  Button,
 } from 'react-native-ui-lib';
+import {
+  getAllCharacters,
+  GetAllLocations,
+} from '../redux/actions/charaterActions';
+import {useAppDispatch, useAppSelector} from '../redux/hooks';
 
 const {TextField} = Incubator;
 
@@ -23,9 +29,15 @@ const list: listProps[] = [
 ];
 
 const Home = () => {
+  const dispatch = useAppDispatch();
+  const {loading} = useAppSelector(state => state.shared);
   const [selected, setSelected] = useState<listProps | null>(null);
   const [hour, setHour] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
+
+  useEffect(() => {
+    console.log('loading', loading);
+  }, [loading]);
 
   const phoneTextField = (val: string) => {
     //Check if we removing the last character
@@ -136,6 +148,8 @@ const Home = () => {
           <Picker.Item key={option.id} value={option.id} label={option.name} />
         ))}
       </Picker>
+
+      <Button onPress={() => dispatch(GetAllLocations())}></Button>
     </View>
   );
 };
